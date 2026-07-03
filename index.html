@@ -14,8 +14,34 @@
 </head>
 <body>
     <div id="root"></div>
+
+    <!-- React Library (CDN) -->
     <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+
+    <!-- App Utils & Hooks -->
     <script src="app.js"></script>
+
+    <!-- Screen Components -->
+    <script src="screens-identify.js"></script>
+    <script src="screens-other.js"></script>
+
+    <!-- Main App -->
+    <script src="main-app.js"></script>
+
+    <!-- Service Worker Registration (Offline Support) -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('sw.js')
+                    .then((reg) => {
+                        console.log('✅ Service Worker registered:', reg.scope);
+                    })
+                    .catch((err) => {
+                        console.log('❌ Service Worker registration failed:', err);
+                    });
+            });
+        }
+    </script>
 </body>
 </html>
