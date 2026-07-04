@@ -233,19 +233,22 @@ const IdentifyScreen = () => {
       if (result.error) {
         setIdentifyError(result.error);
       } else if (result.uri) {
-        setIsLoading(true);
-        setTimeout(() => {
-          setIdentifyResult({
-            species_name: 'Great Tit',
-            common_name: 'Great Tit',
-            estimated_age: 'adult',
-            gender: 'unknown',
-            confidence: 'medium',
-            identifying_features: 'Black and white head, yellow underparts with black stripe',
-            fun_fact: 'Great Tits can remember thousands of locations where they hid food!'
-          });
+       // Replace with real API call
+        (async () => {
+        try {
+          setIsLoading(true);
+          const bird =
+              await window.AI.identifyBird(result.uri);
+          setIdentifyResult(bird);
+        }
+        catch(err){
+           console.error(err);
+          setIdentifyError(err.message);
+        }
+        finally{
           setIsLoading(false);
-        }, 2000);
+        }
+      })();        
       }
     });
   };
