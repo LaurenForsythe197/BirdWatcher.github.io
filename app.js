@@ -3,7 +3,7 @@
 // Chunk 3: Core App Structure & Utilities
 // ========================================
 
-window OPENAI_API_KEY = "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";
+window.OPENAI_API_KEY = "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";
 const React = window.React;
 const { useState, useEffect, useContext, useMemo, useCallback, useRef, createContext } = React;
 const ReactDOM = window.ReactDOM;
