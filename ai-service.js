@@ -3,14 +3,10 @@ window.AI = {
     identifyBird: async function(imageData) {
 
         const response = await fetch(
-            "https://api.openai.com/v1/responses",
+            fetch("https://birdwatcher.yourname.workers.dev/identifyBird",
             {
                 method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                    "Authorization": "Bearer " + window.OPENAI_API_KEY
-                },
-
+                headers: { "Content-Type": "application/json"},
                 body: JSON.stringify({
                     model: "gpt-4.1",
                     input: [
