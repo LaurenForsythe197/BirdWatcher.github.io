@@ -3,7 +3,7 @@ window.AI = {
     identifyBird: async function(imageData) {
 
         const response = await fetch(
-            fetch("https://birdwatcher-ai.laurenforsythe197.workers.dev/",
+            "https://birdwatcher-ai.laurenforsythe197.workers.dev/",
             {
                 method: "POST",
                 headers: { "Content-Type": "application/json"},
