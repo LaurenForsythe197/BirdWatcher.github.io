@@ -185,13 +185,26 @@ const EggIdentifyModal = ({ visible, onClose, theme }) => {
 // ========================================
 
 const IdentifyScreen = () => {
-  // const {theme} = window.AppUtils.useTheme();
-
-const themeHook = window.AppUtils.useTheme();
-console.log("themeHook =", themeHook);
-const { theme } = themeHook || {};
-console.log("theme =", theme);
-console.log("theme.colors =", theme?.colors);
+  const theme = {
+  colors: {
+    textPrimary: getComputedStyle(document.documentElement)
+      .getPropertyValue('--text-primary'),
+    textSecondary: getComputedStyle(document.documentElement)
+      .getPropertyValue('--text-secondary'),
+    primary: getComputedStyle(document.documentElement)
+      .getPropertyValue('--primary-color'),
+    accent: getComputedStyle(document.documentElement)
+      .getPropertyValue('--accent-color'),
+    card: getComputedStyle(document.documentElement)
+      .getPropertyValue('--card-color'),
+    border: getComputedStyle(document.documentElement)
+      .getPropertyValue('--border-color'),
+    success: getComputedStyle(document.documentElement)
+      .getPropertyValue('--success-color'),
+    error: getComputedStyle(document.documentElement)
+      .getPropertyValue('--error-color')
+  }
+  };
   
   const cameraHook = window.AppUtils.useCamera();
   const audioHook = window.AppUtils.useAudio();
